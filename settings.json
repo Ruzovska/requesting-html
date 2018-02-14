@@ -1,0 +1,5 @@
+{
+    "CSSselector": "'.wikitable > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(2) > a:nth-child(2)'",
+    "CSSpath": "'html.client-js.ve-not-available body.mediawiki.ltr.sitedir-ltr.mw-hide-empty-elt.ns-0.ns-subject.page-List_of_countries_by_population_United_Nations.rootpage-List_of_countries_by_population_United_Nations.skin-vector.action-view div#content.mw-body div#bodyContent.mw-body-content div#mw-content-text.mw-content-ltr div.mw-parser-output table.wikitable.sortable.plainrowheaders.jquery-tablesorter tbody tr td a'",
+   "uri": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)"
+}
