@@ -65,7 +65,12 @@ for (i = 0; i < wiki_countries.length; i++) {
   };
 };
 
+//
+
+
 console.log(output.euler_exceptions);
 console.log(Object.keys(output.euler_exceptions).length);
 console.log(output.wiki_exceptions);
 console.log(Object.keys(output.wiki_exceptions).length);
+console.log(output.countries);
+console.log(Object.keys(output.countries).length);

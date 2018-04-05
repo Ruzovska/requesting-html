@@ -23,7 +23,7 @@ request({
 
   $('.wikitable > tbody > tr > td:nth-child(6)').each(function() {
     var link = $(this);
-    var wiki_populations = link.text();
+    var wiki_populations = link.text().replace(/,/g, '');
     wiki_array.push(wiki_populations);
   });
 var wiki_array_counter = 0;
