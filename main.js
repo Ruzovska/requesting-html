@@ -4,13 +4,15 @@ output.countries_users = {};
 output.euler_exceptions = {};
 output.wiki_exceptions = {};
 output.countries_percentage = {};
+output.countries = {};
 
 // making countries that belong to wiki AND euler
 for (var key in output.wiki_countries) {
   for (var key2 in output.euler_countries) {
-    if (output.wiki_countries[key] === output.euler_countries[key2]) {
-      output.countries_populations[output.euler_countries[key2]] = output.wiki_populations[key];
-      output.countries_users[output.euler_countries[key2]] = output.euler_users[key2];
+    if (key === key2) {
+      //output.countries_populations[output.euler_countries[key2]] = output.wiki_populations[key];
+      //output.countries_users[output.euler_countries[key2]] = output.euler_users[key2];
+      output.countries[key2] = {'population': output.wiki_countries[key], 'users': output.euler_countries[key2]};
     };
   };
 };
@@ -95,3 +97,5 @@ countries_percentage.sort(function(a, b) {
 //console.log(Object.keys(output.euler_countries).length);
 //console.log(output.wiki_countries);
 //console.log(Object.keys(output.wiki_countries).length);
+console.log(output.countries);
+console.log(Object.keys(output.countries).length);
