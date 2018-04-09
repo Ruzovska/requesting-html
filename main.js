@@ -1,22 +1,3 @@
-// array-from-object-maker
-var toArray = function(x) {
-  var myArray = [];
-  for (var key in x) {
-    myArray.push(x[key]);
-  };
-  return myArray;
-};
-
-// object-from-array maker
-var toObject = function(x) {
-  var myObject = {};
-  for (i = 0; i < x.length; i++) {
-    myObject[x[i]] = x[i];
-  };
-  return myObject;
-};
-
-
 const output = require('./output.json');
 output.countries_populations = {};
 output.countries_users = {};
@@ -106,11 +87,11 @@ countries_percentage.sort(function(a, b) {
 
 //console.log(output.wiki_exceptions);
 //console.log(output.euler_exceptions);
-console.log(countries_leftover);
+//console.log(countries_leftover);
 //console.log(countries_leftover2);
 //console.log(output.countries_populations);
 //console.log(Object.keys(output.countries_populations).length);
 //console.log(output.euler_countries);
 //console.log(Object.keys(output.euler_countries).length);
-console.log(output.wiki_countries);
-console.log(Object.keys(output.wiki_countries).length);
+//console.log(output.wiki_countries);
+//console.log(Object.keys(output.wiki_countries).length);
