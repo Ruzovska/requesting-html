@@ -4,12 +4,11 @@ const request = require('request');
 const fs = require('fs');
 const settings = require('./settings.json');
 var uriWiki = settings['uriWiki'];
+var output = {wiki_countries: {}, wiki_populations: {}, euler_countries: {}, euler_users: {}};
 request({
   uri: uriWiki,
 }, function(error, response, body) {
-
   var wiki_countries, wiki_populations, euler_countries, euler_users;
-  var json = {wiki_countries: {}, wiki_populations: {}, euler_countries: {}, euler_users: {}};
   var wiki_array = [];
   var euler_array = [];
 //retrieving countries and populations from Wiki
@@ -18,7 +17,7 @@ request({
   $('.wikitable > tbody > tr > td:nth-child(2)').each(function() {
 		var link = $(this);
     var wiki_countries = link.text().trim();
-    json["wiki_countries"][wiki_countries] = wiki_countries;
+    output["wiki_countries"][wiki_countries] = wiki_countries;
 	});
 
   $('.wikitable > tbody > tr > td:nth-child(6)').each(function() {
@@ -27,8 +26,8 @@ request({
     wiki_array.push(wiki_populations);
   });
 var wiki_array_counter = 0;
-  for(var key in json.wiki_countries) {
-    json.wiki_populations[key] = wiki_array[wiki_array_counter];
+  for(var key in output.wiki_countries) {
+    output.wiki_populations[key] = wiki_array[wiki_array_counter];
     wiki_array_counter += 1;
 };
 //retrieving countries and users from Euler
@@ -37,7 +36,7 @@ $ = cheerio.load(euler_contents);
 $('.country_column > a').each(function() {
   var link = $(this);
   var euler_countries = link.text().trim();
-  json["euler_countries"][euler_countries] = euler_countries;
+  output["euler_countries"][euler_countries] = euler_countries;
 });
 $('td.user_column').each(function() {
   var link = $(this);
@@ -45,9 +44,23 @@ $('td.user_column').each(function() {
   euler_array.push(euler_users);
 });
 var euler_array_counter = 0;
-for(var key in json.euler_countries) {
-  json.euler_users[key] = euler_array[euler_array_counter];
+for(var key in output.euler_countries) {
+  output.euler_users[key] = euler_array[euler_array_counter];
   euler_array_counter +=1;
 };
-  fs.writeFileSync('output.json', JSON.stringify(json));
+  fs.writeFileSync('output.json', JSON.stringify(output));
+});
+
+// retrieving populations for individual countries
+var output2 = {individuals_populations: {}};
+request({
+  uri: settings['uriSerbia'],
+}, function(error, response, body) {
+  var $ = cheerio.load(body);
+  $(settings['selectorSerbiaPopulation']).each(function() {
+    var link = $(this);
+    var population = link.text();
+    output2.individuals_populations['Serbia'] = population;
+  });
+  fs.writeFileSync('output2.json', JSON.stringify(output2));
 });
