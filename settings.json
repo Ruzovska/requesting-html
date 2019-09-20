@@ -1,7 +1,21 @@
 {
-    "CSSselector": ".wikitable > tbody:nth-child(3) > tr:nth-child(3) > td:nth-child(2) > a:nth-child(2)",
-    "CSSpath": "html.client-js.ve-not-available body.mediawiki.ltr.sitedir-ltr.mw-hide-empty-elt.ns-0.ns-subject.page-List_of_countries_by_population_United_Nations.rootpage-List_of_countries_by_population_United_Nations.skin-vector.action-view div#content.mw-body div#bodyContent.mw-body-content div#mw-content-text.mw-content-ltr div.mw-parser-output table.wikitable.sortable.plainrowheaders.jquery-tablesorter tbody tr td a",
-   "uriWiki": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
-   "selectorSerbiaPopulation": "tr.mergedrow:nth-child(25) > td:nth-child(2)",
-   "uriSerbia": "https://en.wikipedia.org/wiki/Serbia"
+  "uriWiki": "https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations)",
+  "uriSerbia": "https://en.wikipedia.org/wiki/Serbia",
+  "pathSerbia": "tr.mergedrow:nth-child(25) > td:nth-child(2)",
+  "uriKosovo": "https://en.wikipedia.org/wiki/Kosovo",
+  "pathKosovo": "tr.mergedrow:nth-child(28) > td:nth-child(2)",
+  "uriEngland": "https://en.wikipedia.org/wiki/England",
+  "pathEngland": "tr.mergedrow:nth-child(26) > td:nth-child(2)",
+  "uriScotland": "https://en.wikipedia.org/wiki/Scotland",
+  "pathScotland": "tr.mergedrow:nth-child(30) > td:nth-child(2)",
+  "uriWales": "https://en.wikipedia.org/wiki/Wales",
+  "pathWales": "tr.mergedrow:nth-child(27) > td:nth-child(2)",
+  "uriNorthern_Ireland": "https://en.wikipedia.org/wiki/Northern_Ireland",
+  "pathNorthern_Ireland": "tr.mergedrow:nth-child(26) > td:nth-child(2)",
+  "uriGuernsey": "https://en.wikipedia.org/wiki/Guernsey",
+  "pathGuernsey": "tr.mergedrow:nth-child(24) > td:nth-child(2)",
+  "uriJersey": "https://en.wikipedia.org/wiki/Jersey",
+  "pathJersey": "tr.mergedrow:nth-child(26) > td:nth-child(2)",
+  "uriChristmas_Island": "https://en.wikipedia.org/wiki/Christmas_Island",
+  "pathChristmas_Island": "tr.mergedrow:nth-child(23) > td:nth-child(2)"
 }

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+      <link href="index2.css" rel="stylesheet" type="text/css">
+      <meta charset="utf-8">
+    </head>
+    <body>
+    <table id="table">
+      <tr>
+        <th class="country_column">Country</th>
+        <th class="population_column">Population</th>
+        <th class="users_column">Users</th>
+        <th class="percentage_column">Percentage</th>
+      </tr>
+    </table>
+    <script type="text/javascript" src="output_final2.js"></script>
+         <script type="text/javascript" >
+         var table = document.getElementById("table");
+         for(var key in data.countries_total) {
+           table.innerHTML = table.innerHTML + "<tr id="+key+">"+"<td class='country_column'>"+ key +
+           "</td><td class='population_column'>"+data.countries_total[key]['population']+
+           "</td><td class='users_column'>"+data.countries_total[key]['users']+
+           "</td><td class='percentage_column'>"+data.countries_total_percentage[key]+"</td></tr>";
+         };
+    </script>
+    </body>
+</html>

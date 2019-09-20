@@ -48,20 +48,32 @@ $('td.user_column').each(function() {
 // putting it all to an external JSON
   fs.writeFileSync('output.json', JSON.stringify(output));
 });
-
+//making array of individual countries
+var individuals = ['Kosovo', 'England', 'Scotland', 'Wales', 'Northern_Ireland', 'Guernsey', 'Jersey', "Christmas_Island"];
 // retrieving populations for individual countries
-var output2 = {wiki_individuals: {}};
-request({
-  uri: settings['uriSerbia'],
-}, function(error, response, body) {
-  var $ = cheerio.load(body);
-  $('span').remove();
-  $('sup').remove();
-  $('a').remove();
-  $(settings['selectorSerbiaPopulation']).each(function() {
-    var link = $(this);
-    var population = link.text().replace(/[(), ]/g, '');
-    output2.wiki_individuals['Serbia'] = population;
+
+var meow;
+function retriever(country, jsonName, path) {
+  request({
+    uri: settings['uri' + country],
+  }, function(error, response, body) {
+    var $ = cheerio.load(body);
+    $('span').remove();
+    $('sup').remove();
+    $('a').remove();
+    var population = $(settings['path' + country]).text().replace(/[(), ]/g, '');
+    if (country === "Christmas_Island") {
+      population = population.substr(0, population.length - 4);
+    };
+    jsonName[country.replace(/_/g, ' ')] = population;
+    fs.writeFileSync(path, JSON.stringify(jsonName));
+    meow = body;
   });
-  fs.writeFileSync('output2.json', JSON.stringify(output2));
-});
+};
+setTimeout(function() {console.log(meow)}, 6000);
+var jsonSerbia = {};
+retriever('Serbia', jsonSerbia, 'Serbia.json');
+var output2 = {};
+for (var i = 0; i < individuals.length; i++) {
+  retriever(individuals[i], output2, 'output2.json');
+};
